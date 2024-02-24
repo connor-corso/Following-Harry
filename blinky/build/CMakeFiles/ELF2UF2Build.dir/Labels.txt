@@ -1,0 +1,13 @@
+# Target labels
+ ELF2UF2Build
+# Source files and their labels
+/home/connor/pico/blinky/build/CMakeFiles/ELF2UF2Build
+/home/connor/pico/blinky/build/CMakeFiles/ELF2UF2Build.rule
+/home/connor/pico/blinky/build/CMakeFiles/ELF2UF2Build-complete.rule
+/home/connor/pico/blinky/build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-build.rule
+/home/connor/pico/blinky/build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-configure.rule
+/home/connor/pico/blinky/build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-download.rule
+/home/connor/pico/blinky/build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-install.rule
+/home/connor/pico/blinky/build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-mkdir.rule
+/home/connor/pico/blinky/build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-patch.rule
+/home/connor/pico/blinky/build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-update.rule
