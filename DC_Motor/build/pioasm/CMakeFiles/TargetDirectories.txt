@@ -1,3 +1,0 @@
-/home/connor/pico/DC_Motor/build/pioasm/CMakeFiles/pioasm.dir
-/home/connor/pico/DC_Motor/build/pioasm/CMakeFiles/edit_cache.dir
-/home/connor/pico/DC_Motor/build/pioasm/CMakeFiles/rebuild_cache.dir
