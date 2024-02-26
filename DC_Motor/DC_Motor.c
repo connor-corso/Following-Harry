@@ -1,6 +1,13 @@
 #include "pico/stdlib.h";
 #include "hardware/pwm.h";
 
+uint32_t pwm_get_wrap(uint slice_num)
+{
+    valid_params_if(PWM, slice_num >= 0 &&
+                             slice_num < NUM_PWM_SLICES);
+    return pwm_hw->slice[slice_num].top;
+}
+
 uint32_t pwm_set_freq_duty(uint slice_num, uint chan,
                            uint32_t f, int d)
 {
@@ -46,11 +53,35 @@ void motorInit(Motor *m, uint gpio, uint freq)
 
 void motorspeed(Motor *m, int s)
 {
-    pwm_set_duty
+    pwm_set_duty(m->slice, m->chan, s);
+}
+
+void motorOn(Motor *m)
+{
+    pwm_set_enabled(m->slice, true);
+    m->on = true;
+}
+
+void motorOff(Motor *m)
+{
+    pwm_set_enabled(m->slice, false);
+    m->on = false;
 }
 
 int main()
 {
-
+    Motor mot1;
+    motorInit(&mot1, 21, 2000);
+    motorOn(&mot1);
+    motorOff(&mot1);
+    while (true)
+    {
+        motorspeed(&mot1, 50);
+        sleep_ms(1000);
+        motorspeed(&mot1, 25);
+        sleep_ms(2000);
+        motorspeed(&mot1, 100);
+        sleep_ms(2000);
+    }
     return 0;
 }

@@ -18,31 +18,36 @@ if (PICO_SDK_VERSION_STRING VERSION_LESS "1.4.0")
   message(FATAL_ERROR "Raspberry Pi Pico SDK version 1.4.0 (or later) required. Your version is ${PICO_SDK_VERSION_STRING}")
 endif()
 
-project(DC_Motor C CXX ASM)
+project(H_Bridge_Motor C CXX ASM)
 
 # Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(DC_Motor DC_Motor.c)
+add_executable(H_Bridge_Motor H_Bridge_Motor.c )
 
-pico_set_program_name(DC_Motor "DC_Motor")
-pico_set_program_version(DC_Motor "0.1")
+pico_set_program_name(H_Bridge_Motor "H_Bridge_Motor")
+pico_set_program_version(H_Bridge_Motor "0.1")
 
-pico_enable_stdio_uart(DC_Motor 1)
-pico_enable_stdio_usb(DC_Motor 0)
+pico_enable_stdio_uart(H_Bridge_Motor 1)
+pico_enable_stdio_usb(H_Bridge_Motor 0)
 
 # Add the standard library to the build
-target_link_libraries(DC_Motor
-        hardware_pwm
+target_link_libraries(H_Bridge_Motor
         pico_stdlib)
 
 # Add the standard include files to the build
-target_include_directories(DC_Motor PRIVATE
+target_include_directories(H_Bridge_Motor PRIVATE
   ${CMAKE_CURRENT_LIST_DIR}
   ${CMAKE_CURRENT_LIST_DIR}/.. # for our common lwipopts or any other standard includes, if required
 )
 
-pico_add_extra_outputs(DC_Motor)
+# Add any user requested libraries
+target_link_libraries(H_Bridge_Motor 
+        hardware_pwm
+        pico_stdlib
+        )
+
+pico_add_extra_outputs(H_Bridge_Motor)
 
